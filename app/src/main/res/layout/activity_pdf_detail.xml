@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back01"
+    tools:context=".activities.PdfDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:background="@drawable/shape_toolbar02"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Thông tin sách"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_above="@id/bookOptionLl"
+        android:layout_below="@id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/pdfRl"
+                    android:layout_width="100dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/gray02" >
+
+                    <com.github.barteksc.pdfviewer.PDFView
+                        android:id="@+id/pdfView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    style="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/pdfRl"
+                    android:text="Tên sách" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleTv"
+                    android:layout_toEndOf="@id/pdfRl">
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/categoryLabelTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.3"
+                            android:text="Thể loại" />
+
+                        <TextView
+                            android:id="@+id/categoryTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:id="@+id/dateLabelTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.3"
+                            android:text="Thời gian" />
+
+                        <TextView
+                            android:id="@+id/dateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:id="@+id/sizeLabelTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.3"
+                            android:text="Kích cỡ" />
+
+                        <TextView
+                            android:id="@+id/sizeTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:id="@+id/viewsLabelTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.3"
+                            android:text="Số lần truy cập" />
+
+                        <TextView
+                            android:id="@+id/viewsTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="5dp">
+                        <TextView
+                            android:id="@+id/downloadsLabelTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.3"
+                            android:text="Tải xuống" />
+
+                        <TextView
+                            android:id="@+id/downloadsTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/TextAppearance.MaterialComponents.Caption"
+                            android:layout_marginEnd="5dp"
+                            android:text="N/A" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/descriptionTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Giới thiệu về sách"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bookOptionLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/readBookBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Đọc"
+            android:drawableTop="@drawable/ic_book_white"
+            android:background="@color/design_default_color_on_primary"/>
+
+        <Button
+            android:id="@+id/downloadBookBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tải xuống"
+            android:drawableTop="@drawable/ic_download_white"
+            android:background="@color/design_default_color_on_primary"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
