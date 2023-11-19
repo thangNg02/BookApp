@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private String name="", email="", password="", cPassword="";
+    private String name="", email="", password="", cPassword="", typeAccount="";
     private void validateData() {
 
         //Lấy dữ liệu
@@ -70,6 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = binding.emailEt.getText().toString().trim();
         password = binding.passwordEt.getText().toString().trim();
         cPassword = binding.cPasswordEt.getText().toString().trim();
+//        typeAccount = binding.typeAccountEt.getText().toString().trim();
 
         //Xác nhận thông tin
         if (TextUtils.isEmpty(name)) {
@@ -82,6 +83,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Xác nhận mật khẩu...", Toast.LENGTH_SHORT).show();
         } else if (!password.equals(cPassword)) {
             Toast.makeText(this, "Mật khẩu không trùng khớp!", Toast.LENGTH_SHORT).show();
+//        } else if (TextUtils.isEmpty(typeAccount)) {
+//            Toast.makeText(this, "Chọn user/admin...", Toast.LENGTH_SHORT).show();
         } else {
             createUserAccount();
         }
@@ -129,6 +132,9 @@ public class RegisterActivity extends AppCompatActivity {
         hashMap.put("profileImage", "");
         hashMap.put("userType", "user");
         hashMap.put("timestamp", timestamp);
+        hashMap.put("status", "Offline");
+        hashMap.put("loginTime", "0");
+        hashMap.put("logoutTime", "0");
 
         //set dữ liệu vào db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
@@ -141,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this, "Tạo thành công...", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(RegisterActivity.this, DashboardUserActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                         finish();
                     }
                 })

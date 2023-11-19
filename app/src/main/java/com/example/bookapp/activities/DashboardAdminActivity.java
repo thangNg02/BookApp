@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.bookapp.MyApplication;
 import com.example.bookapp.adapters.AdapterCategory;
 import com.example.bookapp.databinding.ActivityDashboardAdminBinding;
 import com.example.bookapp.models.ModelCategory;
@@ -70,6 +71,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyApplication.updateStatus();
                 firebaseAuth.signOut();
                 checkUser();
             }

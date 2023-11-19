@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.bookapp.BookUserFragment;
+import com.example.bookapp.MyApplication;
 import com.example.bookapp.databinding.ActivityDashboardUserBinding;
 import com.example.bookapp.models.ModelCategory;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +50,7 @@ public class DashboardUserActivity extends AppCompatActivity {
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyApplication.updateStatus();
                 firebaseAuth.signOut();
                 checkUser();
             }

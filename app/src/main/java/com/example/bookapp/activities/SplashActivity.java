@@ -1,10 +1,10 @@
 package com.example.bookapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,6 +60,9 @@ public class SplashActivity extends AppCompatActivity {
                             } else if (userType.equals("admin")) {
                                 startActivity(new Intent(SplashActivity.this, DashboardAdminActivity.class));
                                 finish();
+                            } else if (userType.equals("adminAccounts")) {
+                                startActivity(new Intent(SplashActivity.this, DashboardAdminAccountsActivity.class));
+                                finish();
                             }
                         }
 
@@ -68,6 +71,7 @@ public class SplashActivity extends AppCompatActivity {
 
                         }
                     });
+
         }
     }
 }

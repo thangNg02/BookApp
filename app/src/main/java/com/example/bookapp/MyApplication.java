@@ -19,6 +19,7 @@ import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -225,6 +226,16 @@ public class MyApplication extends Application {
 
                     }
                 });
+    }
+
+    public static void updateStatus() {
+        FirebaseAuth firebaseAuth;
+        firebaseAuth = FirebaseAuth.getInstance();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        String currentUserId = firebaseAuth.getCurrentUser().getUid();
+        DatabaseReference currentUserRef = ref.child(currentUserId);
+
+        currentUserRef.child("status").setValue("Offline");
     }
 
 }

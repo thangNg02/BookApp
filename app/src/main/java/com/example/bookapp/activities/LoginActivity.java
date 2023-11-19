@@ -119,6 +119,11 @@ public class LoginActivity extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
+                        String currentUserId = firebaseAuth.getCurrentUser().getUid();
+                        DatabaseReference currentUserRef = ref.child(currentUserId);
+
+                        currentUserRef.child("status").setValue("Online");
+
                         progressDialog.dismiss();
                         //lấy kiểu user
                         String userType = ""+snapshot.child("userType").getValue();
@@ -126,8 +131,14 @@ public class LoginActivity extends AppCompatActivity {
                         if (userType.equals("user")) {
                             startActivity(new Intent(LoginActivity.this, DashboardUserActivity.class));
                             finish();
+                            finish();
                         } else if (userType.equals("admin")) {
                             startActivity(new Intent(LoginActivity.this, DashboardAdminActivity.class));
+                            finish();
+                            finish();
+                        } else if (userType.equals("adminAccounts")) {
+                            startActivity(new Intent(LoginActivity.this, DashboardAdminAccountsActivity.class));
+                            finish();
                             finish();
                         }
                     }

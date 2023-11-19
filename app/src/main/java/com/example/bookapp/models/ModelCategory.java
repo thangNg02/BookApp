@@ -5,9 +5,7 @@ public class ModelCategory {
     String id, category, uid;
     long timestamp;
 
-    public ModelCategory() {
-
-    }
+    public ModelCategory() {}
 
     public ModelCategory(String id, String category, String uid, long timestamp) {
         this.id = id;
